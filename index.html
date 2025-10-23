@@ -11,9 +11,25 @@
             font-family: 'Roboto', sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden;
+        }
+        .carousel {
+            display: flex;
+            width: 200%;
+            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+        .page {
+            width: 100vw;
+            height: 100vh;
+            padding: 2rem;
+            box-sizing: border-box;
+        }
+        .page1 {
             background: #f4f4f9;
-            color: #333;
-            line-height: 1.6;
+        }
+        .page2 {
+            background: #ffffff;
+            overflow-y: auto;
         }
         header {
             background: #2c3e50;
@@ -21,48 +37,121 @@
             padding: 2rem 0;
             text-align: center;
         }
-        header h1 {
-            margin: 0;
-            font-size: 2.5rem;
+        
+.nav-button {
+    background: rgba(44, 62, 80, 0.6);
+    border-radius: 50%;
+    border: 2px solid white;
+    padding: 1rem;
+    position: fixed;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+        .nav-left {
+            left: 10px;
         }
-        header p {
-            font-size: 1.2rem;
+        .nav-right {
+            right: 10px;
         }
-        .container {
-            max-width: 900px;
-            margin: auto;
+        .timeline {
+            position: relative;
+            margin: 2rem auto;
             padding: 2rem;
+            max-width: 600px;
         }
-        section {
-            margin-bottom: 2rem;
-        }
-        h2 {
-            color: #2c3e50;
-            border-bottom: 2px solid #ccc;
-            padding-bottom: 0.5rem;
-        }
-        ul {
-            padding-left: 1.2rem;
-        }
-        a {
-            color: #2980b9;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        footer {
-            text-align: center;
-            padding: 1rem;
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 4px;
             background: #2c3e50;
-            color: white;
+            transform: translateX(-50%);
+        }
+        .timeline-item {
+            position: relative;
+            margin: 2rem 0;
+            width: 50%;
+            padding: 1rem;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .timeline-item.left {
+            left: 0;
+        }
+        .timeline-item.right {
+            left: 50%;
+        }
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 1rem;
+            width: 10px;
+            height: 10px;
+            background: #2c3e50;
+            border-radius: 50%;
+            left: -5px;
+        }
+        .timeline-item.right::after {
+            left: auto;
+            right: -5px;
         }
     </style>
+
+<style>
+    #content {
+        filter: blur(8px);
+        pointer-events: none;
+    }
+    #content.unblur {
+        filter: none;
+        pointer-events: auto;
+    }
+</style>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        let attempts = 0;
+        const maxAttempts = 3;
+        const correctPassword = "SNPORTFOLIO";
+
+        let disclaimer = "By accessing this portfolio, you agree that the information provided is intended solely for job-specific evaluation purposes and will not be shared, distributed, or used for any other reason without explicit consent.";
+
+        let agreed = confirm(disclaimer);
+        if (!agreed) {
+            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20%;'>Access Denied: Disclaimer not accepted</h2>";
+            return;
+        }
+
+        while (attempts < maxAttempts) {
+            let password = prompt("Enter password to access this site:");
+            if (password === correctPassword) {
+                document.getElementById('content').classList.add('unblur');
+                return;
+            } else {
+                attempts++;
+                alert("Incorrect password. Attempts left: " + (maxAttempts - attempts));
+            }
+        }
+        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20%;'>Access Denied: Maximum attempts exceeded</h2>";
+    });
+</script>
+
 </head>
 <body>
-    <header>
+<div id='content'>
+    <button class="nav-button nav-left" onclick="slideLeft()">&#8592;</button>
+    <button class="nav-button nav-right" onclick="slideRight()">&#8594;</button>
+    <div class="carousel" id="carousel">
+        <div class="page page1">
+            <header>
         <h1>Sasi Nemani</h1>
-        <p>Project Manager | Scrum Master | Systems Engineer</p>
+        <p>Project Manager</p>
     </header>
     <div class="container">
         <section>
@@ -88,7 +177,9 @@
         <section>
             <h2>Skills</h2>
             <ul>
-                <li><strong>Project Management:</strong> Scrum, Agile, Kanban, JIRA, MS Project, PWA</li>
+                <li><strong>Project Management:</strong> Scrum, Agile, Kanban, JIRA, MS Project</li>
+                <li><strong>Tools:</strong> Matlab, Simulink, ANSYS, AutoCAD</li>
+                <li><strong>Programming:</strong> Python, C++, SQL (basic)</li>
                 <li><strong>Languages:</strong> English (C1), German (B1), Hindi (C1)</li>
             </ul>
         </section>
@@ -101,14 +192,43 @@
         </section>
         <section>
             <h2>Contact</h2>
-            <ul>
-            <li><a href="mailto:sasi.nemani07@gmail.com">sasi.nemani07@gmail.com</a></li>
-            <li><a LinkedIn: <a href="https://www.linkedin.com/in/sasinemani/" target="_blank">Linkedin</a></li>
-            </ul>
+            <p><a href="mailto:sasi.nemani07@gmail.com">Email</a></p>
+            
+            <p><a href="https://www.linkedin.com/in/sasikanthnemani/" target="_blank">LinkedIn</a></p>
         </section>
     </div>
     <footer>
         <p>&copy; 2025 Sasi Nemani. All rights reserved.</p>
     </footer>
+
+        </div>
+        <div class="page page2">
+            <header>
+                <h2>Career Timeline</h2>
+            </header>
+            <div class="timeline">
+                <div class="timeline-item left"><strong>2012:</strong> Started Bachelor's in Mechanical Engineering</div>
+                <div class="timeline-item right"><strong>April 2016:</strong> Internship at XYZ Company</div>
+                <div class="timeline-item left"><strong>June 2016:</strong> Graduated with Bachelor's degree</div>
+                <div class="timeline-item right"><strong>September 2019:</strong> Joined Master's program in Mechatronics</div>
+                <div class="timeline-item left"><strong>April 2022:</strong> Joined FIT Voltaira Group GmbH</div>
+                <div class="timeline-item right"><strong>January 2023:</strong> Promoted to Project Manager</div>
+                <div class="timeline-item left"><strong>June 2023:</strong> Led €1M+ investment project</div>
+                <div class="timeline-item right"><strong>June 2024:</strong> Certified Scrum Master</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let currentPage = 0;
+        function slideRight() {
+            currentPage = 1;
+            document.getElementById('carousel').style.transform = 'translateX(-100vw)';
+        }
+        function slideLeft() {
+            currentPage = 0;
+            document.getElementById('carousel').style.transform = 'translateX(0)';
+        }
+    </script>
+</div>
 </body>
 </html>
