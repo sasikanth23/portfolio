@@ -1,0 +1,25 @@
+
+.headshot {
+  width:120px;
+  height:120px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:16px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.lang-switch {
+  display:flex;
+  gap:8px;
+  margin-left:12px;
+}
+.lang-switch button {
+  border:none;
+  background:#eef3ff;
+  padding:6px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+.btn.download {
+  background:var(--accent);
+  color:#fff;
+}
