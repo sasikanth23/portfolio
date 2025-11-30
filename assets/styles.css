@@ -18,8 +18,12 @@
   padding:6px 10px;
   border-radius:8px;
   cursor:pointer;
-}
+
 .btn.download {
-  background:var(--accent);
-  color:#fff;
+  background: var(--accent);
+  color: #fff;
 }
+.btn.download:hover {
+  box-shadow: 0 12px 30px rgba(16,185,129,.25);
+}
+
