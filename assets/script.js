@@ -1,6 +1,8 @@
-
 document.querySelectorAll('.lang-switch button').forEach(btn=>{
   btn.addEventListener('click',()=>{
-    alert('Language switched to '+btn.dataset.lang);
+    const lang = btn.dataset.lang;
+    document.querySelectorAll('[data-en]').forEach(el=>{
+      el.textContent = el.getAttribute(`data-${lang}`);
+    });
   });
 });
