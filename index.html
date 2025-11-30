@@ -1,237 +1,328 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sasi Nemani | Project Manager</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Roboto', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-        }
-        .carousel {
-            display: flex;
-            width: 200%;
-            transition: transform 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
-        }
-        .page {
-            width: 100vw;
-            height: 100vh;
-            padding: 2rem;
-            box-sizing: border-box;
-        }
-        .page1 {
-            background: #f4f4f9;
-        }
-        .page2 {
-            background: #ffffff;
-            overflow-y: auto;
-        }
-        header {
-            background: #2c3e50;
-            color: #fff;
-            padding: 2rem 0;
-            text-align: center;
-        }
-        
-.nav-button {
-    background: rgba(44, 62, 80, 0.6);
-    border-radius: 50%;
-    border: 2px solid white;
-    padding: 1rem;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-50%);
-    color: white;
-    cursor: pointer;
-    z-index: 1000;
-}
-
-        .nav-left {
-            left: 10px;
-        }
-        .nav-right {
-            right: 10px;
-        }
-        .timeline {
-            position: relative;
-            margin: 2rem auto;
-            padding: 2rem;
-            max-width: 600px;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 50%;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: #2c3e50;
-            transform: translateX(-50%);
-        }
-        .timeline-item {
-            position: relative;
-            margin: 2rem 0;
-            width: 50%;
-            padding: 1rem;
-            background: #ecf0f1;
-            border-radius: 8px;
-        }
-        .timeline-item.left {
-            left: 0;
-        }
-        .timeline-item.right {
-            left: 50%;
-        }
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            top: 1rem;
-            width: 10px;
-            height: 10px;
-            background: #2c3e50;
-            border-radius: 50%;
-            left: -5px;
-        }
-        .timeline-item.right::after {
-            left: auto;
-            right: -5px;
-        }
-    </style>
-
-<style>
-    #content {
-        filter: blur(8px);
-        pointer-events: none;
-    }
-    #content.unblur {
-        filter: none;
-        pointer-events: auto;
-    }
-</style>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let attempts = 0;
-        const maxAttempts = 3;
-        const correctPassword = "SNPORTFOLIO";
-
-        let disclaimer = "By accessing this portfolio, you agree that the information provided is intended solely for purposes agreed with the owner and will not be shared, distributed, or used for any other reason without explicit consent.";
-
-        let agreed = confirm(disclaimer);
-        if (!agreed) {
-            document.body.innerHTML = "<h2 style='text-align:center; margin-top:20%;'>Access Denied: Disclaimer not accepted</h2>";
-            return;
-        }
-
-        while (attempts < maxAttempts) {
-            let password = prompt("Enter password to access this site:");
-            if (password === correctPassword) {
-                document.getElementById('content').classList.add('unblur');
-                return;
-            } else {
-                attempts++;
-                alert("Incorrect password. Attempts left: " + (maxAttempts - attempts));
-            }
-        }
-        document.body.innerHTML = "<h2 style='text-align:center; margin-top:20%;'>Access Denied: Maximum attempts exceeded</h2>";
-    });
-</script>
-
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sasi Nemani — Project Manager</title>
+  <meta name="description" content="Agile Project Manager with 5+ years experience in automotive and software; Scrum, stakeholder management, and systems engineering." />
+  <meta name="author" content="Sasi Nemani" />
+  <meta property="og:title" content="Sasi Nemani — Project Manager" />
+  <meta property="og:description" content="Driving agile delivery in automotive & software projects." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="" />
+  <meta property="og:url" content="" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/styles.css" />
 </head>
 <body>
-<div id='content'>
-    <button class="nav-button nav-left" onclick="slideLeft()">&#8592;</button>
-    <button class="nav-button nav-right" onclick="slideRight()">&#8594;</button>
-    <div class="carousel" id="carousel">
-        <div class="page page1">
-            <header>
-        <h1>Sasi Nemani</h1>
-        <p>Project Manager</p>
-    </header>
-    <div class="container">
-        <section>
-            <h2>About Me</h2>
-            <p>Project manager with 5+ years of experience in classical and agile project management, scrum methodologies, and systems engineering. Skilled in leading international cross-functional teams and managing stakeholders in the automotive and software industries. Certified Professional Scrum Master (PSM I) and Google Project Management Professional.</p>
-        </section>
-        <section>
-            <h2>Experience Highlights</h2>
-            <ul>
-                <li><strong>FIT Voltaira Group GmbH:</strong> Managed €1M+ investments, led 8+ internal teams and 5+ external stakeholders.</li>
-                <li><strong>HELLA GmbH:</strong> Delivered smart car access solutions, moderated workshops, and ensured project KPIs.</li>
-                <li><strong>Robert Bosch Automotive Steering:</strong> Supported agile transformation and Program Increment Planning.</li>
-                <li><strong>TCS:</strong> Led agile teams, reduced project delays by 50%, and trained new hires.</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Education</h2>
-            <ul>
-                <li>Master’s in Mechatronics – University of Siegen, Germany</li>
-                <li>Bachelor’s in Mechanical Engineering – GITAM University, India</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>Project Management:</strong> Scrum, Agile, Kanban, JIRA, MS Project</li>
-                <li><strong>Tools:</strong> Matlab, Simulink, ANSYS, AutoCAD</li>
-                <li><strong>Programming:</strong> Python, C++, SQL (basic)</li>
-                <li><strong>Languages:</strong> English (C1), German (B1), Hindi (C1)</li>
-            </ul>
-        </section>
-        <section>
-            <h2>Certifications</h2>
-            <ul>
-                <li><a href="https://drive.google.com/file/d/1LNGAv0go56Qk4jEWYWIlvEk2Su5Qr1xS/view?usp=share_link" target="_blank">Professional Scrum Master I</a></li>
-                <li><a href="https://www.coursera.org/account/accomplishments/specialization/certificate/LTHJKR5DVQ5Z" target="_blank">Google Project Management Certificate</a></li>
-            </ul>
-        </section>
-        <section>
-            <h2>Contact</h2>
-            <p><a href="mailto:sasi.nemani07@gmail.com">Email</a></p>
-            
-            <p><a href="https://www.linkedin.com/in/sasinemani/" target="_blank">LinkedIn</a></p>
-        </section>
+  <div class="bg">
+    <div class="blob blob1"></div>
+    <div class="blob blob2"></div>
+    <div class="grid-overlay"></div>
+  </div>
+
+  <header class="site-header">
+    <a class="brand" href="#home">
+      <span class="logo" aria-hidden="true">SN</span>
+      <span class="brand-text">Sasi Nemani</span>
+    </a>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#certifications">Certifications</a>
+      <a href="#timeline">Timeline</a>
+      <a href="#contact" class="cta">Contact</a>
+    </nav>
+    <button class="theme-toggle" aria-label="Toggle theme">
+      <svg viewBox="0 0 24 24" class="icon"><path d="M12 3a9 9 0 0 0 0 18 9 9 0 0 1 0-18Z"/></svg>
+    </button>
+  </header>
+
+  <main id="home" class="hero">
+    <div class="hero-content">
+      <h1 class="title">
+        <span class="line">Agile Project Leader</span>
+        <span class="line accent">Automotive & Software</span>
+      </h1>
+      <p class="subtitle">Driving clarity, alignment, and delivery across cross‑functional teams.</p>
+      <div class="actions">
+        <a href="#experience" class="btn primary">View Highlights</a>
+        <a href="#contact" class="btn ghost">Connect</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">5+ yrs</span>
+          <span class="stat-label">PM Experience</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">€1M+</span>
+          <span class="stat-label">Investments Managed</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">8+ / 5+</span>
+          <span class="stat-label">Internal / External Teams</span>
+        </div>
+      </div>
     </div>
-    <footer>
-        <p>&copy; 2025 Sasi Nemani. All rights reserved.</p>
+    <div class="hero-visual" aria-hidden="true">
+      <svg viewBox="0 0 600 600" class="orbit">
+        <defs>
+          <radialGradient id="grad" cx="50%" cy="50%" r="50%">
+            <stop offset="0%" stop-color="#fff"/>
+            <stop offset="100%" stop-color="#e6f4ff"/>
+          </radialGradient>
+        </defs>
+        <circle cx="300" cy="300" r="160" fill="url(#grad)" opacity="0.9"/>
+        <g class="dots">
+          <circle cx="300" cy="120" r="6"/>
+          <circle cx="480" cy="300" r="6"/>
+          <circle cx="300" cy="480" r="6"/>
+          <circle cx="120" cy="300" r="6"/>
+        </g>
+      </svg>
+    </div>
+  </main>
+
+  <section id="about" class="section">
+    <div class="section-head">
+      <h2>About Me</h2>
+      <p>Project manager with 5+ years of experience in classical and agile project management, Scrum methodologies, and systems engineering. Skilled in leading international cross‑functional teams and managing stakeholders in the automotive and software industries. Certified Professional Scrum Master (PSM I) and Google Project Management Professional.</p>
+    </div>
+    <div class="cards">
+      <article class="card reveal">
+        <div class="card-icon">
+          <!-- Team SVG -->
+          <svg viewBox="0 0 24 24" class="icon"><path d="M12 12a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm6 8v-2a4 4 0 0 0-4-4H10a4 4 0 0 0-4 4v2" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Team Leadership</h3>
+        <p>Led diverse, international teams with a focus on clarity, autonomy, and delivery.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">
+          <!-- Agile SVG -->
+          <svg viewBox="0 0 24 24" class="icon"><path d="M4 12a8 8 0 0 1 14-5m2 5a8 8 0 0 1-14 5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Agile Delivery</h3>
+        <p>Scrum, Kanban, and pragmatic rituals that elevate team velocity and stakeholder trust.</p>
+      </article>
+      <article class="card reveal">
+        <div class="card-icon">
+          <!-- Stakeholders SVG -->
+          <svg viewBox="0 0 24 24" class="icon"><path d="M3 7h12l6 5-6 5H3V7Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <h3>Stakeholder Management</h3>
+        <p>Transparent communication, clear road‑maps, and measurable outcomes.</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="experience" class="section">
+    <div class="section-head">
+      <h2>Experience Highlights</h2>
+      <p class="lead">Selected projects and outcomes across automotive and software.</p>
+    </div>
+    <div class="carousel">
+      <button class="carousel-btn prev" aria-label="Previous">&#8592;</button>
+      <div class="carousel-track">
+        <article class="highlight card">
+          <h3>FIT Voltaira Group GmbH</h3>
+          <p>Managed €1M+ investments, led 8+ internal teams and 5+ external stakeholders.</p>
+        </article>
+        <article class="highlight card">
+          <h3>HELLA GmbH</h3>
+          <p>Delivered smart car access solutions, moderated workshops, and ensured project KPIs.</p>
+        </article>
+        <article class="highlight card">
+          <h3>Robert Bosch Automotive Steering</h3>
+          <p>Supported agile transformation and Program Increment Planning.</p>
+        </article>
+        <article class="highlight card">
+          <h3>TATA Consultancy Services</h3>
+          <p>Led agile teams, reduced project delays by 50%, and trained new hires.</p>
+        </article>
+      </div>
+      <button class="carousel-btn next" aria-label="Next">&#8594;</button>
+    </div>
+  </section>
+
+  <section id="skills" class="section">
+    <div class="section-head">
+      <h2>Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill card">
+        <h3>Project Management</h3>
+        <ul class="tags">
+          <li>Scrum</li><li>Agile</li><li>Kanban</li><li>JIRA</li><li>MS Project</li>
+        </ul>
+      </div>
+      <div class="skill card">
+        <h3>Engineering Tools</h3>
+        <ul class="tags">
+          <li>Matlab</li><li>Simulink</li><li>ANSYS</li><li>AutoCAD</li>
+        </ul>
+      </div>
+      <div class="skill card">
+        <h3>Programming</h3>
+        <ul class="tags">
+          <li>Python</li><li>C++</li><li>SQL (basic)</li>
+        </ul>
+      </div>
+      <div class="skill card">
+        <h3>Languages</h3>
+        <ul class="tags">
+          <li>English (C1)</li><li>German (B1)</li><li>Hindi (C1)</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" class="section">
+    <div class="section-head">
+      <h2>Education</h2>
+    </div>
+    <div class="cards">
+      <article class="card">
+        <h3>Master’s in Mechatronics</h3>
+        <p>University of Siegen, Germany</p>
+      </article>
+      <article class="card">
+        <h3>Bachelor’s in Mechanical Engineering</h3>
+        <p>GITAM University, India</p>
+      </article>
+    </div>
+  </section>
+
+  <section id="certifications" class="section">
+    <div class="section-head">
+      <h2>Certifications</h2>
+    </div>
+    <div class="cards">
+      <a class="card link-card" href="https://drive.google.com/file/d/1LNGAv0go56Qk4jEWYWIlvEk2Su5Qr1xS/view?usp=share_link" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M6 4h12l2 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l2-4Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <h3>Professional Scrum Master I</h3>
+          <p>View credential</p>
+        </div>
+      </a>
+      <a class="card link-card" href="https://www.coursera.org/account/accomplishments/specialization/certificate/LTHJKR5DVQ5Z" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M6 4h12l2 4v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l2-4Z" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <h3>Google Project Management Certificate</h3>
+          <p>View credential</p>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="timeline" class="section">
+    <div class="section-head">
+      <h2>Career Timeline</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-line"></div>
+      <article class="timeline-item reveal">
+        <time datetime="2012">2012</time>
+        <div class="content">
+          <h3>Started Bachelor's in Mechanical Engineering</h3>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2016-04">Apr 2016</time>
+        <div class="content">
+          <h3>Finished Bachelor’s + Internship</h3>
+          <p>Hindustan Petroleum Corporation Limited, India</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2016-06">Jun 2016</time>
+        <div class="content">
+          <h3>TATA Consultancy Services</h3>
+          <p>Assistant Systems Engineer</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2019-09">Sep 2019</time>
+        <div class="content">
+          <h3>Master’s in Mechatronics</h3>
+          <p>Joined University of Siegen</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2022-04">Apr 2022</time>
+        <div class="content">
+          <h3>Faurecia Autositze GmbH</h3>
+          <p>Working student — seating material data analysis</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2023-01">Jan 2023</time>
+        <div class="content">
+          <h3>Robert Bosch Automotive Steering</h3>
+          <p>Scrum Master</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2023-06">Jun 2023</time>
+        <div class="content">
+          <h3>HELLA GmbH &amp; Co. KGaA</h3>
+          <p>Junior Project Manager</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2024-06">Jun 2024</time>
+        <div class="content">
+          <h3>One Mobility</h3>
+          <p>Project Manager — Led €1M+ investment projects</p>
+        </div>
+      </article>
+      <article class="timeline-item reveal">
+        <time datetime="2025">Present</time>
+        <div class="content">
+          <h3>Open to new PM challenges</h3>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <div class="section-head">
+      <h2>Let’s Connect</h2>
+      <p>Open to roles in project management, agile delivery, and systems engineering.</p>
+    </div>
+    <div class="contact-cards">
+      <a class="card link-card" href="mailto:sasi.nemani07@gmail.com">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M4 6h16v12H4z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M4 8l8 5 8-5" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <h3>Email</h3>
+          <p>sasi.nemani07@gmail.com</p>
+        </div>
+      </a>
+      <a class="card link-card" href="https://www.linkedin.com/in/sasinemani/" target="_blank" rel="noopener">
+        <div class="card-icon">
+          <svg viewBox="0 0 24 24" class="icon"><path d="M4 4h16v16H4z" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M7 10v7M7 7.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1Zm4 7V10m0 0c0-1.657 3-1.657 3 0v4" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+        </div>
+        <div>
+          <h3>LinkedIn</h3>
+          <p>@sasinemani</p>
+        </div>
+      </a>
+    </div>
+    <footer class="site-footer">
+      <p>© 2025 Sasi Nemani. All rights reserved.</p>
     </footer>
+  </section>
 
-        </div>
-        <div class="page page2">
-            <header>
-                <h2>Career Timeline</h2>
-            </header>
-            <div class="timeline">
-                <div class="timeline-item left"><strong>2012:</strong> Started Bachelor's in Mechanical Engineering</div>
-                <div class="timeline-item right"><strong>April 2016:</strong> Finished Bachelors along with an internship at Hindustan Petrol Corporation Limited India</div>
-                <div class="timeline-item left"><strong>June 2016:</strong> First job at TATA Consultancy services as Assitant Systems Engineer</div>
-                <div class="timeline-item right"><strong>September 2019:</strong> Resigned from Systems Engineer position, joined Master's program in Mechatronics at Uni Siegen</div>
-                <div class="timeline-item left"><strong>April 2022:</strong> Joined Faurecia Autositze GmbH as Working student for seating mataerial data analysis</div>
-                <div class="timeline-item right"><strong>January 2023:</strong> Scrum Master at Robert Bosch Automotive Steering</div>
-                <div class="timeline-item left"><strong>June 2023:</strong> Junior Project Manager at Hella GmbH & Co KGaA</div>
-                <div class="timeline-item right"><strong>June 2024:</strong> Project Managaer at One Mobility,  Led €1M+ investment projects</div>
-                <div class="timeline-item right"><strong>Present:</strong> Actively searching for new challenges in PM</div>
-
-                
-            </div>
-        </div>
-    </div>
-    <script>
-        let currentPage = 0;
-        function slideRight() {
-            currentPage = 1;
-            document.getElementById('carousel').style.transform = 'translateX(-100vw)';
-        }
-        function slideLeft() {
-            currentPage = 0;
-            document.getElementById('carousel').style.transform = 'translateX(0)';
-        }
-    </script>
-</div>
+  <script src="assets/script.js"></script>
 </body>
 </html>
